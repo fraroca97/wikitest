@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { WikitudeService } from '../providers/wikitude.service';
 
 @Component({
   templateUrl: 'app.html'
@@ -14,9 +15,9 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private wikitudeService: WikitudeService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -33,6 +34,10 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      console.log('Device is ready!');
+
+      this.wikitudeService.initializeService();
     });
   }
 

@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { WikitudeService } from '../providers/wikitude.service';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    WikitudeService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
